@@ -1,0 +1,267 @@
+@import 'normalize';
+@import 'fontAwesome/fontawesome-all.min.css';
+
+@primary-color: #151c47;
+@secondary-color: #fff;
+@gray: #bcbcbc;
+@light-gray: #bcbcbc;
+@dark-gray: #333333;
+
+.font-0 {font-size: 0;}
+.font-17 {font-size: 17px;}
+.font-18 {font-size: 18px;}
+.font-20 {font-size: 20px;}
+.font-24 {font-size: 24px;}
+.font-26 {font-size: 26px;}
+.font-36 {font-size: 36px;}
+.font-54 {font-size: 54px;}
+.font-76 {font-size: 76px;}
+
+.light {font-weight: 300;}
+.bold {font-weight: 700;}
+.uppercase {text-transform: uppercase;}
+.openSans {font-family: 'Open Sans', sans-serif;}
+.condensed {font-family: 'Open Sans Condensed', sans-serif;}
+.border-box {box-sizing: border-box;}
+
+.block {display:block;}
+.inline-block {display: inline-block;}
+.hide {display: none;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+.float-left {float: left;}
+.float-right {float: right;}
+.clearfix {display: block; zoom: 1;
+    &:after {content: " "; display: block; font-size: 0; height: 0; clear: both; visibility: hidden;}
+}
+
+@keyframes bounce {
+	0%, 20%, 60%, 100% {-webkit-transform: translateY(0); transform: translateY(0);}
+	40% {-webkit-transform: translateY(-20px); transform: translateY(-20px);}
+	80% {-webkit-transform: translateY(-10px); transform: translateY(-10px);}
+}
+
+@keyframes slideInFromLeft {
+  0% {transform: translateX(-100%);}
+  100% {transform: translateX(0);}
+}
+
+@keyframes slideInFromRight {
+  0% {transform: translateX(100%);}
+  100% {transform: translateX(0);}
+}
+
+/* Homepage/base styles */
+body {
+    .wrapper {max-width: 1400px; margin: 0 auto;}
+    header {
+        .text-center; padding: 90px 0 0;
+        @media only screen and (min-width: 800px) {padding: 0;}
+        @media only screen and (min-width: 1024px) {padding: 0 0 50px 0;}
+        nav {
+            .inline-block; margin: 10px 0; 
+            ul {
+                padding-left: 0; margin: 0;
+                 li {
+                    list-style: none; .inline-block; margin: 0 10px; position: relative; vertical-align: middle;
+                    a {
+                        .condensed; .light; .uppercase; text-decoration: none; color: #f5f6f7; .font-20; transition: color 0.25 ease-in;
+                        &:hover {color: #318233; transition: color 0.25 ease-in;}
+                     }
+                     &:after {content:''; .block; border-bottom: 1px solid white; position: relative; top: 7px;}
+                     &.tab {
+                         &:after {width: 160%;}
+                     }
+                }
+                .left {animation: 2s ease-out 0s 1 slideInFromLeft;}
+                .right {animation: 2s ease-out 0s 1 slideInFromRight;}
+                
+                #logo {
+                    @media only screen and (max-width: 800px) {position: absolute; top: 15px; width: 100%; left: 0; margin: 0;}
+                    img {
+                        height: 90px;
+                        &:hover {animation: bounce 1s}
+                        @media only screen and (min-width: 800px) {height: 120px;}
+                    }
+                    &:after {content: none;}
+                } 
+            }
+        }
+    }
+    
+    .btn {
+        .inline-block; .uppercase; .light; text-decoration: none; color: #fff; background-color: #318233; padding: 15px; text-align: left; width: 90%; border-radius: 10px; font-size: 20px; position: relative; top: 10px; transition: background-color 0.25s ease-in;
+        .fa-angle-right:before, .fa-download:before {position: absolute; top: 13px; font-size: 28px; right: 20px;}
+        &:hover {background-color: #184019; transition: background-color 0.25s ease-in}
+        @media only screen and (min-width: 800px) {width: 85%;}
+    }
+    
+    #heroBlock {
+        background: url('images/headerBG.jpg'); background-size: cover; position: relative; z-index: 1; padding: 20px 0 30px;  margin-bottom: 25px; .text-center;
+        h1, .imgWrap {vertical-align: top; width: 100%;}
+        h1 {width: 80%; .condensed; .light; .font-20; letter-spacing: 1px; line-height: 1.4; color: #fff; padding: 20px 0; .text-center; .inline-block;}
+        .imgWrap {
+            .hide; position: relative;
+            img {
+                position: absolute;
+                &:nth-child(1) {top: -70px; animation: 1.5s ease-out 0s 1 slideInFromLeft;}
+                &:nth-child(2) {top: 85px; right: 0; animation: 1.5s ease-out 0s 1 slideInFromRight;}
+                &:nth-child(3) {top: 80px; left: 75px; animation: 1.5s ease-out 0s 1 slideInFromLeft;}
+                &:nth-child(4) {top: 180px; left: 70px; animation: 1.5s ease-out 0s 1 slideInFromRight;}
+            }
+        }
+        .btn {
+            .condensed;background-color: #f5f6f7; color: #43464a; border: 1px solid #43464a; transition: background-color 0.25 ease-in, color 0.25 ease-in; top: -10px; width: 70%;
+            &:hover {background-color:#318233; color: white; transition: background-color 0.25 ease-in, color 0.25 ease-in;}
+        }
+        @media only screen {
+             @media (min-width: 800px) {
+                 .btn {width: 25%;}
+            }
+            @media (min-width: 1024px) {
+                text-align: unset;
+                h1 {width: 42%; padding: 20px 0 125px; .font-24; }
+                .imgWrap {.inline-block; width: 54%;}
+                .btn {left: calc(~'100% - 395px');  top: -50px; }
+            }
+            @media (min-width: 1240px) {
+                .btn {left: calc(~'100% - 340px');  top: -50px; width: 250px;}
+            }
+        } 
+    }
+    
+    .itemBlock {
+        padding: 0 20px; .condensed; margin: 10px 0;
+        @media only screen and (min-width: 1024px) {padding: 0 50px;}
+        @media only screen and (min-width: 1240px) {margin: 50px 0; padding: 0 100px;}
+        .item {
+            .inline-block; width: 100%; .border-box; background-color: #f5f6f7; vertical-align: top; .text-center; margin-right: 3%; padding: 25px 25px 40px; border-radius: 25px; margin-bottom: 5%;
+            &:last-child {margin-right: 0;}
+            .icon {
+                text-decoration: none; color: #43464a; .font-76; .light; .inline-block; background-color: white; border-radius: 20px; padding: 20px 40px; margin-bottom: 10px; border: 1px solid #ccc;
+            }
+            h3 {.uppercase; .font-20; letter-spacing: 5px; .font-26;}
+            p {.font-18; letter-spacing: .25px;}
+            &:hover {
+                .icon {animation: bounce 1s}
+            }
+            @media only screen and (min-width: 800px) {width: 31%; margin-bottom: 0; padding: 25px;}
+        }
+    }
+    footer {
+        background-color: #0d0b20; color: white; .text-center; padding: 40px 0 20px;
+        .social-icons {
+            padding: 15px 0; .block; 
+            a {
+                color: white; .font-20; padding: 12px; margin: 0 14px; border: 1px solid; border-radius: 10px; transition: background-color 0.25s ease-in;
+                i {width: 20px; height: 20px;}
+                &:hover {background-color: #318233; transition: background-color 0.25s ease-in;}
+            } 
+            
+        }
+        p {font-size: 10px; padding: 20px 0 0;}
+    }    
+}
+
+/* Portfolio */
+#portfolio {
+    header {padding-bottom: 0;}
+    #heroBlock {
+        margin-bottom: 0; .text-center;
+        @media only screen and (min-width: 1024px) {
+            h1 {margin: 20px 0; padding: 0 30px; width: 60%; .font-20;}
+        }
+    }
+    .itemBlock {
+        .text-center; margin: 0 auto 50px; padding: 0; border-radius: 25px; background-color: #f5f6f7;
+         h2 {.uppercase; letter-spacing: 5px; font-size: 26px; background-color: #000000cc; .block; .condensed; .light; margin-top: 0; padding: 10px 0; color: white;}
+        .item {
+            width: 90%; padding: 0; background-color: transparent; position: relative;
+            img {width: 100%; border-radius: 5px; box-shadow: 0px 5px 15px 5px #ddd;}
+             @media only screen and (min-width: 800px) {
+                width: 30%; margin: 0 1% 1% 0;
+            }
+            .hover {
+                position: absolute; top: 0; background-color: rgba(0,0,0,.8); opacity: 0; width: 100%; height: 72%; transition: opacity 0.5s ease-in; border-radius: 5px; padding: 8% 0;
+                h3 {color: white; text-transform: unset; letter-spacing: 0; font-family: 'Open Sans'; font-weight: lighter; position: relative; margin-bottom: 1%; margin-top: 8%; .font-18;}
+                .btn {left: 0; padding: 15px; opacity: 1; width: 35%; .text-center;}
+                @media only screen {
+                    @media (min-width: 1024px) {
+                        h3 {.font-20; margin-top: 10%;}
+                    }
+                    @media (min-width: 1240px) {
+                        h3 {.font-24;  margin-top: 12%;}
+                    }
+                }
+            }
+            &:hover {
+                @media only screen and (min-width: 1024px) {
+                    .hover {opacity: 1; transition: opacity 0.5s ease-in;}
+                }
+            }
+        }
+    }
+    #professional {
+        .item {
+            width: 90%; margin: 0 0 3% 0;
+            @media only screen and (min-width: 800px) {
+                 width: 40%; margin: 0 3% 1% 0;
+                &:last-child {margin-right: 0;}
+            }
+        }
+    }
+    #freelance {
+        h2 {border-radius: 25px 25px 0 0}
+        .hover {
+            height: 75%;
+            .btn {width: 50%;}
+        } 
+    }
+}
+
+/* About */
+#about {
+    header {padding-bottom: 0;}
+    #heroBlock {
+        .text-center;
+        h1 {
+            width: 80%; .font-18; padding: 0;
+            @media only screen and (min-width: 1240px) {
+                width: 45%;
+            }
+        }
+    }
+    .itemBlock {
+        .text-right;
+        .item {
+            width: auto; margin-right: 0;
+            img {
+                width: 100%;
+                &:nth-child(1) {.hide;}
+                @media only screen and (min-width: 800px) {
+                    width: 49%; .inline-block;
+                    &:nth-child(1) {.inline-block;}
+                }
+            }
+            p {
+                line-height: 1.4; text-align: left;
+                a {
+                    color: #318233;
+                    &:hover {color:#184019;}
+                }
+                @media only screen and (min-width: 800px) {
+                    .text-center;
+                }
+            }
+       }
+        .btn {
+            left: 0; top: -10px;
+            @media only screen and (min-width: 800px) {
+                top: 5px; width: 250px;
+            }
+            @media only screen and (min-width: 1240px) {
+                top: 10px;
+            }
+        }
+    }
+}
